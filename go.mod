@@ -1,4 +1,4 @@
-module qiitaorgwatcher
+module qiitawatcher
 
 go 1.12
 
