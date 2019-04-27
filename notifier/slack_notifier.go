@@ -1,10 +1,9 @@
 package notifier
 
 import (
-	"qiitawatcher/watcher"
-
 	"log"
 
+	"github.com/laqiiz/qiitawatcher/watcher"
 	"github.com/bluele/slack"
 	"github.com/pkg/errors"
 )

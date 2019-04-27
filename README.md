@@ -20,6 +20,8 @@
 ```
 $ <set envioromental variables>
 $ export GO111MODULE=on
+$ go mod init # only initialize
+$ go mod tidy
 $ go build
 $ go run
 ```
