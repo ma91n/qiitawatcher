@@ -1,7 +1,7 @@
 package notifier
 
 import (
-	"qiitaorgwatcher/watcher"
+	"qiitawatcher/watcher"
 
 	"log"
 

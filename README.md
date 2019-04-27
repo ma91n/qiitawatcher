@@ -8,7 +8,7 @@
 |--------------------|----------|--------------------|--------------------------------|
 | QIITA_TOKEN        | ○        | STRING             | Qiita access token             |
 | QIITA_ORGANIZATION | ○        | STRING             | Qiita Organization ID          |
-| CREATED            | ○        | STRING(YYYY-MM-DD) | Created date for qiita article |
+| CREATED            | --        | STRING(YYYY-MM-DD) | Created date for qiita article |
 | SLACK_TOKEN        | ○        | STRING             | Slack access token             |
 | SLACK_CHANNEL      | ○        | STRING             | Slack chanell                  |
 
@@ -26,5 +26,13 @@ $ go run
 
 # Deploy Google Cloud Function
 
+Deploy to GCP Cloud Functions（HTTP）
 
+```sh
+$ gcloud functions --project ${project} deploy main \
+--entry-point Receive \
+--runtime go111 \
+--set-env-vars QIITA_TOKEN=${qiita token},QIITA_ORGANIZATION=${qiita organization},SLACK_TOKEN=${slack token},SLACK_CHANNEL=${slack channel} \
+--trigger-http
+```
 
