@@ -1,11 +1,12 @@
-package endpoint
+package qiitawatcher
 
 import (
 	"net/http"
 	"log"
 	"time"
 	"os"
-	"qiitawatcher/controller"
+
+	"github.com/laqiiz/qiitawatcher/controller"
 )
 
 // http endpoint for Google Cloud Function

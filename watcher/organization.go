@@ -6,10 +6,9 @@ import (
 	"net/http"
 	"strings"
 	"time"
+	"log"
 
 	"golang.org/x/oauth2"
-
-	"log"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/pkg/errors"

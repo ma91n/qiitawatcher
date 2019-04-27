@@ -1,13 +1,14 @@
 package controller
 
 import (
-	"github.com/kelseyhightower/envconfig"
-	"github.com/pkg/errors"
 	"time"
 	"log"
 	"fmt"
-	"qiitawatcher/watcher"
-	"qiitawatcher/notifier"
+	
+	"github.com/kelseyhightower/envconfig"
+	"github.com/pkg/errors"
+	"github.com/laqiiz/qiitawatcher/watcher"
+	"github.com/laqiiz/qiitawatcher/notifier"
 )
 
 type EnvConfig struct {

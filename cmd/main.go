@@ -1,8 +1,8 @@
-package main
+package cmd
 
 import (
 	"log"
-	"qiitawatcher/controller"
+	"github.com/laqiiz/qiitawatcher/controller"
 )
 
 // main endpoint
