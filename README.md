@@ -1,6 +1,7 @@
 # QiitaOrgWatcher
 
-指定のQiita Organizationに投稿を検知し、Slackに通知します
+Bot tool for search posts in the specified Qiita Organization and notify Slack.
+
 
 # Configurations
 
