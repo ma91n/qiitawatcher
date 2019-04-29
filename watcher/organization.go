@@ -80,9 +80,15 @@ func (q *Organization) search(chunk []string, created time.Time) ([]Article, err
 			continue
 		}
 
+		// substring
+		headLine := item.Body
+		if len([]rune(item.Body)) >= 75 {
+			headLine = string([]rune(item.Body)[:75])
+		}
+
 		articles = append(articles, Article{
 			Title:        item.Title,
-			HeadLine:     strings.TrimSpace(string([]rune(item.Body)[:75])),
+			HeadLine:     strings.TrimSpace(headLine),
 			UserName:     item.User.Id,
 			UserLink:     "https://qiita.com/users/" + item.User.Id,
 			UserIconLink: item.User.ProfileImageURL,
