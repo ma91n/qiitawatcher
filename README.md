@@ -3,6 +3,10 @@
 Bot tool for search posts in the specified Qiita Organization and notify Slack.
 
 
+# Output Examples
+
+![](example_output.png)
+
 # Configurations
 
 | NAME               | REQUIRED | TYPE               | NOTES                          |
