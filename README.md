@@ -1,4 +1,4 @@
-# QiitaOrgWatcher
+# QiitaWatcher
 
 Bot tool for search posts in the specified Qiita Organization and notify Slack.
 
