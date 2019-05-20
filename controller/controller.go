@@ -1,14 +1,14 @@
 package controller
 
 import (
-	"time"
-	"log"
 	"fmt"
-	
+	"log"
+	"time"
+
 	"github.com/kelseyhightower/envconfig"
-	"github.com/pkg/errors"
-	"github.com/laqiiz/qiitawatcher/watcher"
 	"github.com/laqiiz/qiitawatcher/notifier"
+	"github.com/laqiiz/qiitawatcher/watcher"
+	"github.com/pkg/errors"
 )
 
 type EnvConfig struct {
@@ -49,7 +49,7 @@ func Execute() error {
 	}
 
 	if len(articles) == 0 {
-		log.Printf("new article was not found ")
+		log.Printf("new article was not found")
 		return nil
 	}
 

@@ -3,8 +3,8 @@ package notifier
 import (
 	"log"
 
-	"github.com/laqiiz/qiitawatcher/watcher"
 	"github.com/bluele/slack"
+	"github.com/laqiiz/qiitawatcher/watcher"
 	"github.com/pkg/errors"
 )
 
