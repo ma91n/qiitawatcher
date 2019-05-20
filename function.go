@@ -17,15 +17,15 @@ func Receive(w http.ResponseWriter, r *http.Request) {
 	beforeDate := time.Now().Add(-24 * time.Hour).Format("2006-01-02")
 	if err := os.Setenv("CREATED", beforeDate); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(err.Error()))
+		_, _ = w.Write([]byte(err.Error()))
 		return
 	}
 
 	if err := controller.Execute(); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(err.Error()))
+		_, _ = w.Write([]byte(err.Error()))
 		return
 	}
-	w.Write([]byte("success"))
+	_, _ = w.Write([]byte("success"))
 	log.Printf("finished")
 }
