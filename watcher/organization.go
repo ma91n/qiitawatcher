@@ -3,10 +3,10 @@ package watcher
 import (
 	"context"
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 	"time"
-	"log"
 
 	"golang.org/x/oauth2"
 
@@ -30,7 +30,7 @@ func (q *Organization) SearchArticle(created time.Time) ([]Article, error) {
 	articles := make([]Article, 0)
 
 	chunk := make([]string, 0, 10) // 10人程度にしておく. 1人分でクエリサイズが40byte弱なので、多分20人とかでも問題ない. Qiita API Limitが存在するため、なるべくAPIはまとめておく
-	for _, userID := range userList[:20] {
+	for _, userID := range userList {
 		chunk = append(chunk, userID)
 		if len(chunk) >= 10 {
 			chunkArticles, err := q.search(chunk, created)
@@ -66,7 +66,9 @@ func (q *Organization) search(chunk []string, created time.Time) ([]Article, err
 		if query.Len() > 0 {
 			query.WriteString(" OR ")
 		}
-		query.WriteString("user:" + id + " created:>" + created.Format("2006-01-02")) // クエリでカッコを使った論理式は利用不可のため各ユーザごとにcreatedを付与
+		// Qiita API use UTC time zone
+		// Qiita API is not supported using nest logic expression. For that reason add created condition in each user
+		query.WriteString("user:" + id + " created:>" + created.UTC().Format("2006-01-02"))
 	}
 	log.Printf("query=%v\n", query.String())
 	items, _, err := client.Items.List(&qiita.ItemsListOptions{Query: query.String()})
